@@ -9,6 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <title>Resourceflow</title>
+        <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@v0.163.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@v0.163.0/examples/jsm/"
+        }
+      }
+    </script>
         </head>
       <style>
         body {
@@ -53,7 +62,7 @@
     </div>
     </div>
 <body>
-   
+  <script type="module" src="js/script.js"></script>
     <footer class="footer" style="background-color: #663dff;">
         <div class="footer-content">
           <p class="footerText">&copy; Delhi Public School Noida</p>
