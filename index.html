@@ -7,7 +7,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="style.css">
         <title>Resourceflow</title>
         </head>
       <style>
@@ -19,8 +19,7 @@
     
       </style>
     </head>
-    <div id="particles-js"><canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;" width="937"
-        height="1193"></canvas></div>
+   
         <script>
             window.onscroll = function() {myFunction()};
             
@@ -36,12 +35,7 @@
     }
     
             </script>
-            <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-            <script>
-                particlesJS.load("particles-js", "particles.json", function () {
-                    console.log("yeah");
-                });
-      </script>        
+          
             <section id="home">
             <div class="header">
     
@@ -65,23 +59,6 @@
           <p class="footerText">&copy; Delhi Public School Noida</p>
         </div>
       </footer>
-      <script>
-        window.addEventListener('mouseover', initLandbot, { once: true });
-        window.addEventListener('touchstart', initLandbot, { once: true });
-        var myLandbot;
-        function initLandbot() {
-          if (!myLandbot) {
-            var s = document.createElement('script');s.type = 'text/javascript';s.async = true;
-            s.addEventListener('load', function() {
-              var myLandbot = new Landbot.Livechat({
-                configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-2582553-OZ858935C42A7B58/index.json',
-              });
-            });
-            s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.js';
-            var x = document.getElementsByTagName('script')[0];
-            x.parentNode.insertBefore(s, x);
-          }
-        }
-        </script>
+     
 </body>
 </html>
