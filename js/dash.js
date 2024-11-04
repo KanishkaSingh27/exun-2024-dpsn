@@ -1,8 +1,7 @@
-// Define alertContainer globally so it can be accessed by all functions
+
 const alertContainer = document.getElementById("alert-container");
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Sidebar elements for manual adjustments
     const sidebar = document.getElementById("sidebar");
     const openSidebarButton = document.getElementById("openSidebar");
     const closeSidebarButton = document.getElementById("closeSidebar");
@@ -25,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
     phSlider.oninput = () => phValue.textContent = phSlider.value;
 
     applyLevelsButton.onclick = function() {
-        // Update levels with slider values
         temperatureLevel = parseFloat(tempSlider.value);
         oxygenLevel = parseFloat(oxygenSlider.value);
         salinityLevel = parseFloat(salinitySlider.value);
@@ -33,13 +31,11 @@ document.addEventListener("DOMContentLoaded", function() {
         sidebar.style.right = "-350px";
     };
 
-    // Real-time data variables
     let temperatureLevel = 10, oxygenLevel = 50, salinityLevel = 35, phLevel=7.2;
     let prevTemperatureLevel = temperatureLevel, prevOxygenLevel = oxygenLevel, prevSalinityLevel = salinityLevel;
     const labels = [], temperatureData = [], oxygenData = [], salinityData = [];
     const anomalyThresholds = { temperature: 5.0, oxygen: 8.0, salinity: 6.0 };
 
-    // Setup Chart.js for live updates
     const ctx = document.getElementById('predictionChart').getContext('2d');
     const liveChart = new Chart(ctx, {
         type: 'line',
@@ -57,12 +53,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Function to generate random fluctuations and occasional spikes
     function getRandomFluctuation(rate, isSpike = false) {
-        return isSpike ? (Math.random() - 0.5) * 70 : (Math.random() - 0.5) * 2;
+        return isSpike ? (Math.random() - 0.5) * 20 : (Math.random() - 0.5) * 2;
     }
 
-    // Function to introduce occasional random spikes
     function introduceRandomSpike(level, chance = 0.1) {
         if (Math.random() < chance) {
             console.log("Spike triggered!");
@@ -71,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function() {
         return level + getRandomFluctuation(0.2);
     }
 
-    // Function to update the live chart data
     function updateLiveChart() {
         temperatureLevel = Math.min(Math.max(introduceRandomSpike(temperatureLevel), 0), 100);
         oxygenLevel = Math.min(Math.max(introduceRandomSpike(oxygenLevel), 0), 100);
@@ -82,8 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("salinity").innerText = `${salinityLevel.toFixed(1)} PSU`;
         document.getElementById("ph").innerText = `${phLevel.toFixed(1)}`;
 
-        // Add new data to chart, keeping only the last 30 points
-        if (labels.length >= 30) {
+        if (labels.length >= 30) { //keep 30 points
             labels.shift();
             temperatureData.shift();
             oxygenData.shift();
@@ -96,17 +88,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         liveChart.update();
 
-        // Check for anomalies and critical levels
         detectAnomalies();
         checkCriticalLevels();
 
-        // Update previous values for next comparison
         prevTemperatureLevel = temperatureLevel;
         prevOxygenLevel = oxygenLevel;
         prevSalinityLevel = salinityLevel;
     }
 
-    // Function to detect anomalies based on sudden spikes
     function detectAnomalies() {
         if (Math.abs(temperatureLevel - prevTemperatureLevel) > anomalyThresholds.temperature) {
             showNotification(`Anomaly detected in Temperature! Change: ${Math.abs(temperatureLevel - prevTemperatureLevel).toFixed(1)}°C`);
@@ -119,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Function to check for critical levels and trigger alerts
     function checkCriticalLevels() {
         if (temperatureLevel < 5 || temperatureLevel > 30) {
             showNotification("Temperature level critical!");
@@ -132,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Function to show notifications
     function showNotification(message) {
         const notification = document.createElement("div");
         notification.className = "alert";
@@ -144,6 +131,5 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 3000);
     }
 
-    // Start live updates every second
     setInterval(updateLiveChart, 1000);
 });
