@@ -53,8 +53,8 @@ loader.load('MAP.glb', (gltf) => {
 
   //points of interest
   const points = [
-    { position: new THREE.Vector3(-1, 1.2, -2), name: 'Ancient Ruins' },
-    { position: new THREE.Vector3(-1, 1.2, 1), name: 'Research Base Alpha' },
+    { position: new THREE.Vector3(-0.45, 1.1, -1.09), name: 'Ancient Ruins' },
+    { position: new THREE.Vector3(1.95, 1.1, 0.5), name: 'Research Base Alpha' },
   ];
 
   const markerMaterial = new THREE.MeshBasicMaterial({ color: 0xffcc00, emissive: 0xffcc00, emissiveIntensity: 1 });
@@ -115,9 +115,9 @@ function animate() {
       const screenPosition = child.position.clone().project(camera);
       const label = child.userData.label;
       const x = (screenPosition.x * 0.5 + 0.5) * window.innerWidth;
-      const y = (1 - screenPosition.y * 0.5 - 0.19) * window.innerHeight;
+      const y = (1 - screenPosition.y * 0.5) * window.innerHeight;
       label.style.left = `${x}px`;
-      label.style.top = `${y+100}px`;
+      label.style.top = `${y-(window.innerHeight*0.05)}px`;
       label.style.display = screenPosition.z > -1 && screenPosition.z < 1 ? 'block' : 'none';
     }
   });
