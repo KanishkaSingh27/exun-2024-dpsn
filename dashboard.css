@@ -3,13 +3,14 @@
     font-family: 'Poppins',sans-serif;
     scroll-behavior: smooth;
     scrollbar-color: #279BE4;
+    
 }
 html, body {
     font-family: 'poppins', sans-serif;
     height: 100%;
   }
   body {
-    background: #FFFFFF;
+    background: #202020;
     height: 100%;
   }
   img {
@@ -32,7 +33,7 @@ html, body {
   }
   .white-label {
     float: left;
-    background: #33373B;
+    background: #202020;
     max-width: 210px;
     padding: 10px;
     min-height: 44px;
@@ -53,7 +54,7 @@ html, body {
   .menu-button {
     float: left;
     font-size: 29px;
-    color: #fff;
+    color: #202022;
     padding: 12px 19px;
   }
   .nav ul {
@@ -150,9 +151,7 @@ html, body {
     height: 100%;
     float: left;
     background: #2A2D33;
-    position:sticky;
-  position:-webkit-sticky;
-  top:10px;
+    position:relative;
   }
   #sidebar-nav {
     width: 106%;
@@ -198,6 +197,7 @@ html, body {
   }
   #sidebar-nav ul li:hover a {
     background: #fff;
+    transition: 0.5s;
     color: #333;
   }
   #sidebar-nav ul li.active a {
