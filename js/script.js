@@ -115,7 +115,7 @@ function animate() {
       const screenPosition = child.position.clone().project(camera);
       const label = child.userData.label;
       const x = (screenPosition.x * 0.5 + 0.5) * window.innerWidth;
-      const y = (1 - screenPosition.y * 0.5) * window.innerHeight;
+      const y = (1 - screenPosition.y * 0.5 - 0.19) * window.innerHeight;
       label.style.left = `${x}px`;
       label.style.top = `${y+100}px`;
       label.style.display = screenPosition.z > -1 && screenPosition.z < 1 ? 'block' : 'none';
