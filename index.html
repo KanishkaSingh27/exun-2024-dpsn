@@ -17,9 +17,38 @@
         }
       }
     </script>
-</head>
-
-<body>
+        </head>
+      <style>
+        body {
+      margin:0px;
+      padding:0px;
+      text-align:center;
+    }
+    
+      </style>
+    </head>
+   
+        <script>
+            window.onscroll = function() {myFunction()};
+            
+            var navbar = document.getElementById("topnav");
+        
+            function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+    
+            </script>
+          
+            <section id="home">
+            <div class="header">
+    
+            <div class="inner-header flex">
+    
     <div class="topnav" id="myTopnav">
         <img src="logo.png" class="logo">
         <a href="sign_in.html" class="button">Sign In</a>
@@ -29,13 +58,9 @@
         <a href="index.html" class="left">Home</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
     </div>
-
-
-><!--Map-->
-    <div id="progress-container">Loading map...</div>
-    <script type="module" src="js/script.js"></script>
-
-
+    </div>
+<body>
+  <script type="module" src="js/script.js"></script>
     <footer class="footer" style="background-color: #663dff;">
       <div class="footer-content">
         <p class="footerText">&copy; Delhi Public School Noida</p>
