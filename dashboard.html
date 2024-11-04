@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Underwater Condition Monitoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Underwater Condition Monitoring</h1>
+        <p>Real-time environmental data and alerts for Vedika's research team</p>
+    </header>
+    
+    <main>
+        <!-- Environmental Data Dashboard -->
+        <section class="dashboard">
+            <h2>Real-Time Environmental Data</h2>
+            <div class="data-grid">
+                <div class="data-item">
+                    <h3>Temperature</h3>
+                    <p id="temp">Loading...</p>
+                </div>
+                <div class="data-item">
+                    <h3>pH Level</h3>
+                    <p id="ph">Loading...</p>
+                </div>
+                <div class="data-item">
+                    <h3>Salinity</h3>
+                    <p id="salinity">Loading...</p>
+                </div>
+                <div class="data-item">
+                    <h3>Oxygen Level</h3>
+                    <p id="oxygen">Loading...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Anomaly Alert System -->
+        <section class="alerts">
+            <h2>Anomaly Alert System</h2>
+            <div id="alert-container">
+                <p>No anomalies detected.</p>
+            </div>
+        </section>
+
+        <!-- Predictive Modeling -->
+        <section class="predictive-modeling">
+            <h2>Predictive Modeling</h2>
+            <canvas id="predictionChart" width="400" height="200"></canvas>
+            <p>Forecasted environmental conditions based on recent data trends.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Vedika's Research Team</p>
+    </footer>
+
+    <!-- Sidebar for adjusting levels -->
+    <div id="sidebar" class="sidebar">
+        <button id="closeSidebar" class="close-btn">×</button>
+        <h2>Adjust Levels</h2>
+        <label for="tempSlider">Temperature (°C): <span id="tempValue">10</span></label>
+        <input type="range" id="tempSlider" min="0" max="100" value="10">
+        
+        <label for="oxygenSlider">Oxygen Level (%): <span id="oxygenValue">50</span></label>
+        <input type="range" id="oxygenSlider" min="0" max="100" value="50">
+        
+        <label for="salinitySlider">Salinity (PSU): <span id="salinityValue">35</span></label>
+        <input type="range" id="salinitySlider" min="0" max="100" value="35">
+        
+        <button id="applyLevels" class="apply-btn">Apply Levels</button>
+    </div>
+
+    <!-- Button to open sidebar -->
+    <button id="openSidebar" class="open-btn">Adjust Levels</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dash.js"></script>
+</body>
+</html>
