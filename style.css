@@ -132,3 +132,15 @@ body {
      
     }
   
+    .label {
+      position: absolute;
+      padding: 4px 8px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 4px;
+      font-size: 14px;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      z-index: 10;
+  }

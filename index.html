@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resourceflow</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-        <title>Resourceflow</title>
-        <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
     <script type="importmap">
       {
         "imports": {
@@ -18,56 +17,40 @@
         }
       }
     </script>
-        </head>
-      <style>
-        body {
-      margin:0px;
-      padding:0px;
-      text-align:center;
-    }
-    
-      </style>
-    </head>
-   
-        <script>
-            window.onscroll = function() {myFunction()};
-            
-            var navbar = document.getElementById("topnav");
-        
-            function myFunction() {
-      var x = document.getElementById("myTopnav");
-      if (x.className === "topnav") {
-        x.className += " responsive";
-      } else {
-        x.className = "topnav";
-      }
-    }
-    
-            </script>
-          
-            <section id="home">
-            <div class="header">
-    
-            <div class="inner-header flex">
-    
-    <div class="topnav" id="myTopnav">
-        <img src="logo.png" class="logo" width="10px" style="margin-left: 0px;">
-        
-       <a href="sign in.html" class="button">Sign In</a>
-        <a href="radar.html" class="left">Radar</a>
-      <a href="help.html" class="left">Help</a>
-      <a href="food.html" class="left">Food Manager</a>
-      <a href="index.html" class="left">Home</a>
-      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-    </div>
-    </div>
+</head>
+
 <body>
-  <script type="module" src="js/script.js"></script>
+    <div class="topnav" id="myTopnav">
+        <img src="logo.png" class="logo">
+        <a href="sign_in.html" class="button">Sign In</a>
+        <a href="radar.html" class="left">Radar</a>
+        <a href="help.html" class="left">Help</a>
+        <a href="food.html" class="left">Food Manager</a>
+        <a href="index.html" class="left">Home</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+
+
+><!--Map-->
+    <div id="progress-container">Loading map...</div>
+    <script type="module" src="js/script.js"></script>
+
+
     <footer class="footer" style="background-color: #663dff;">
-        <div class="footer-content">
-          <p class="footerText">&copy; Delhi Public School Noida</p>
-        </div>
-      </footer>
-     
+      <div class="footer-content">
+        <p class="footerText">&copy; Delhi Public School Noida</p>
+      </div>
+    </footer>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
 </body>
 </html>
