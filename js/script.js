@@ -53,10 +53,24 @@ loader.load('MAP.glb', (gltf) => {
 
   //points of interest
   const points = [
-    { position: new THREE.Vector3(-0.45, 1.1, -1.09), name: 'Ancient Ruins' },
-    { position: new THREE.Vector3(1.95, 1.1, 0.5), name: 'Research Base Alpha' },
+    { 
+      position: new THREE.Vector3(-0.45, 1.1, -1.09), 
+      name: 'Ancient Ruins', 
+      url: 'sign in.html' 
+    },
+    { 
+      position: new THREE.Vector3(1.95, 1.1, 0.5), 
+      name: 'Research Base Alpha', 
+      url: 'sign in.html' 
+    },
+    { 
+      position: new THREE.Vector3(3.95, 1.1, 0.5), 
+      name: 'Research Base Alpha', 
+      url: 'sign in.html' 
+    },
   ];
 
+  //markers
   const markerMaterial = new THREE.MeshBasicMaterial({ color: 0xffcc00, emissive: 0xffcc00, emissiveIntensity: 1 });
   points.forEach(point => {
     const markerGeometry = new THREE.SphereGeometry(0.1, 16, 16);
@@ -65,6 +79,7 @@ loader.load('MAP.glb', (gltf) => {
     marker.name = point.name;
     scene.add(marker);
 
+// labels
     const labelDiv = document.createElement('div');
     labelDiv.className = 'label';
     labelDiv.textContent = point.name;
@@ -72,7 +87,7 @@ loader.load('MAP.glb', (gltf) => {
     marker.userData.label = labelDiv;
 
     labelDiv.addEventListener('click', () => {
-      alert(`${point.name} was notified`);
+      zoomToLabel(point.position, point.url);
     });
   });
 
@@ -124,3 +139,33 @@ function animate() {
 }
 
 animate();
+
+//zoom aniamation
+function zoomToLabel(targetPosition, url) {
+  const startPosition = camera.position.clone();
+  const tweenDuration = 600; 
+  let start = null;
+
+  function easeInOut(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  }
+
+  function animateZoom(timestamp) {
+    if (!start) start = timestamp;
+    const elapsed = timestamp - start;
+    const progress = Math.min(elapsed / tweenDuration, 1);
+    const easedProgress = easeInOut(progress);
+
+    camera.position.lerpVectors(startPosition, targetPosition, easedProgress);
+    camera.lookAt(targetPosition);
+
+    if (progress < 1) {
+      requestAnimationFrame(animateZoom);
+    } else {
+      camera.position.copy(targetPosition);
+      window.location.href = url;
+    }
+  }
+
+  requestAnimationFrame(animateZoom);
+}
