@@ -213,11 +213,10 @@ body {
   }
   
 
-  /* Sidebar Styles */
   .sidebar {
     position: fixed;
     top: 0;
-    right: -250px; /* Hidden by default */
+    right: -250px; 
     width: 250px;
     height: 100%;
     background-color: #333;
@@ -313,9 +312,14 @@ input[type="range"] {
 
 .open-btn {
   position: fixed;
-  bottom: 20px;
+  bottom: 10px;
   width: 50px;
+  height: 50px;
   right: 20px;
   font-size: 10px;
   z-index: 1001;
+}
+.canvas-container {
+  width: 40%; 
+  height: auto; 
 }

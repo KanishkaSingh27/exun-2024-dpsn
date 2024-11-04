@@ -2,23 +2,25 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
+const scale= 0.4
+
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.outputColorSpace = THREE.SRGBColorSpace;
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(window.innerWidth*scale, window.innerHeight*scale);
 renderer.setClearColor(0x000000);
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.shadowMap.enabled = true;
-document.body.appendChild(renderer.domElement);
+document.querySelector('.canvas-container').appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
-camera.position.set(4, 5, 11);
+const camera = new THREE.PerspectiveCamera(25/scale, window.innerWidth / window.innerHeight, 1, 1000);
+camera.position.set(4, 0, 11);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
-controls.enablePan = false;
-controls.minDistance = 5;
-controls.maxDistance = 20;
+controls.enablePan = true;
+controls.minDistance = 4;
+controls.maxDistance = 25;
 controls.minPolarAngle = 0.5;
 controls.maxPolarAngle = 1.5;
 controls.autoRotate = false;
@@ -102,8 +104,8 @@ document.addEventListener('mousedown', onDocumentMouseDown, false);
 function onDocumentMouseDown(event) {
   event.preventDefault();
   const mouse = new THREE.Vector2();
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  mouse.x = (event.clientX / window.innerWidth*scale) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight*scale) * 2 + 1;
 
   const raycaster = new THREE.Raycaster();
   raycaster.setFromCamera(mouse, camera);
@@ -115,9 +117,9 @@ function onDocumentMouseDown(event) {
 }
 
 window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.aspect = window.innerWidth*scale / window.innerHeight*scale;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(window.innerWidth*scale, window.innerHeight*scale);
 });
 
 function animate() {
@@ -129,10 +131,10 @@ function animate() {
     if (child.userData.label) {
       const screenPosition = child.position.clone().project(camera);
       const label = child.userData.label;
-      const x = (screenPosition.x * 0.5 + 0.5) * window.innerWidth;
-      const y = (1 - screenPosition.y * 0.5) * window.innerHeight;
+      const x = (screenPosition.x * 0.5 + 0.5) * window.innerWidth*scale;
+      const y = (1 - screenPosition.y * 0.5) * window.innerHeight*scale;
       label.style.left = `${x}px`;
-      label.style.top = `${y-(window.innerHeight*0.05)}px`;
+      label.style.top = `${y+(window.innerHeight*scale*0.69)}px`;
       label.style.display = screenPosition.z > -1 && screenPosition.z < 1 ? 'block' : 'none';
     }
   });
