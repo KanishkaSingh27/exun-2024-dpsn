@@ -3,220 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Forum</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Collaborative Journal</title>
     <style>
-        /* General Styles */
+        /* General styles */
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #0f0e13;
             color: #eee;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 800px;
+            width: 100%;
             padding: 20px;
         }
 
         .header {
-            background-color: #1a1a2e;
-            padding: 20px;
             text-align: center;
             color: #ffcc00;
         }
 
-        .header h1 {
+        h1 {
             margin: 0;
             font-size: 2em;
         }
 
-        /* Main Layout */
-        .main-content {
-            display: flex;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        /* Left Section */
-        .left {
-            flex: 2;
-            background-color: #2a2a4b;
+        /* Journal entry form */
+        .journal-form {
+            background-color: #1a1a2e;
             padding: 20px;
             border-radius: 10px;
         }
 
-        .left h2 {
+        .journal-form label {
+            display: block;
+            margin-top: 10px;
             color: #ffcc00;
-            margin-bottom: 20px;
         }
 
-        .post {
+        .journal-form input[type="text"], .journal-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 5px;
             background-color: #33354d;
+            color: #eee;
+        }
+
+        .journal-form button {
+            background-color: #ffcc00;
+            color: #333;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+            font-size: 1em;
+        }
+
+        /* Journal entries */
+        .entries {
+            margin-top: 20px;
+        }
+
+        .entry {
+            background-color: #2a2a4b;
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
         }
 
-        .post img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-        }
-
-        .post .details {
-            color: #ddd;
-        }
-
-        .post .details h3 {
+        .entry h3 {
             color: #ffcc00;
             margin: 0;
-            font-size: 1.2em;
         }
 
-        .post .details p {
-            margin: 5px 0;
+        .entry p {
+            margin: 10px 0;
             color: #ccc;
         }
 
-        .post .sub-details {
-            display: flex;
-            gap: 10px;
-            color: #888;
-        }
-
-        .post .comment-count {
-            margin-left: auto;
-            color: #888;
-        }
-
-        /* Right Sidebar */
-        .right {
-            flex: 1;
-            background-color: #2a2a4b;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .right h3 {
-            color: #ffcc00;
-            margin-bottom: 15px;
-        }
-
-        .right .box {
-            background-color: #33354d;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        .right .box h4 {
-            color: #ffcc00;
-            margin: 0;
-        }
-
-        .right .box .stat {
-            display: flex;
-            justify-content: space-between;
+        .entry .tags {
             color: #888;
             font-size: 0.9em;
-            margin-top: 5px;
-        }
-
-        .right .box .stat i {
-            margin-right: 5px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #1a1a2e;
-            color: #888;
-            padding: 20px;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        footer a {
-            color: #ffcc00;
-            text-decoration: none;
-            margin: 0 10px;
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1>Underwater Research Forum</h1>
-        <p>Discuss findings, techniques, and insights with fellow researchers</p>
+        <h1>Collaborative Journal</h1>
+        <p>Log findings, ideas, and insights</p>
     </header>
 
     <div class="container">
-        <div class="main-content">
-            <!-- Left Section (Posts) -->
-            <section class="left">
-                <h2>Latest Discussions</h2>
+        <div class="journal-form">
+            <h2>Add Journal Entry</h2>
+            <label for="title">Title</label>
+            <input type="text" id="title" placeholder="Entry Title">
+            
+            <label for="tags">Tags</label>
+            <input type="text" id="tags" placeholder="e.g., Marine Biology, Equipment, Anomaly">
 
-                <div class="post">
-                    <img src="https://via.placeholder.com/60" alt="User Avatar">
-                    <div class="details">
-                        <h3>Exploring the Ancient Ruins</h3>
-                        <p>Posted by MarineBiologist45</p>
-                        <div class="sub-details">
-                            <span>5 hours ago</span>
-                            <span>12 replies</span>
-                        </div>
-                    </div>
-                    <div class="comment-count">
-                        <i class="fas fa-comment"></i> 12
-                    </div>
-                </div>
+            <label for="description">Description</label>
+            <textarea id="description" rows="4" placeholder="Write your findings here..."></textarea>
 
-                <div class="post">
-                    <img src="https://via.placeholder.com/60" alt="User Avatar">
-                    <div class="details">
-                        <h3>Magnetic Anomalies Detected</h3>
-                        <p>Posted by OceanResearcher22</p>
-                        <div class="sub-details">
-                            <span>8 hours ago</span>
-                            <span>8 replies</span>
-                        </div>
-                    </div>
-                    <div class="comment-count">
-                        <i class="fas fa-comment"></i> 8
-                    </div>
-                </div>
-            </section>
+            <button onclick="addEntry()">Add Entry</button>
+        </div>
 
-            <!-- Right Sidebar (Popular Topics) -->
-            <aside class="right">
-                <h3>Popular Topics</h3>
-
-                <div class="box">
-                    <h4>Underwater Ecosystems</h4>
-                    <div class="stat">
-                        <span><i class="fas fa-comment"></i> 345 comments</span>
-                        <span><i class="fas fa-eye"></i> 1.2M views</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <h4>Equipment & Technology</h4>
-                    <div class="stat">
-                        <span><i class="fas fa-comment"></i> 220 comments</span>
-                        <span><i class="fas fa-eye"></i> 900K views</span>
-                    </div>
-                </div>
-            </aside>
+        <div class="entries" id="entries">
+            <h2>Journal Entries</h2>
+            <!-- Entries will appear here -->
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Underwater Research Community</p>
-        <p><a href="#">Home</a> | <a href="#">About</a> | <a href="#">Contact</a> | <a href="#">Privacy Policy</a></p>
-    </footer>
+    <script src="js/forum.js"></script>
 </body>
 </html>
