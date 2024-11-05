@@ -345,10 +345,10 @@ input[type="range"] {
   z-index: 1001;
 }
 .canvas-container {
-  width: 90%; 
+  width: 80%; 
   height: auto; 
   position: absolute;
-  left: 50px;
+  left: 100px;
 }
 .waves {
   position:relative;
