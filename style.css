@@ -165,10 +165,10 @@ body {
       border-radius: 4px;
       font-size: 10px;
       pointer-events: auto;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); /* Center the label */
       white-space: nowrap;
       z-index: 10;
-  }
+    }
   .header {
     background-color: #1a1a2e;
     padding: 20px;
@@ -345,8 +345,10 @@ input[type="range"] {
   z-index: 1001;
 }
 .canvas-container {
-  width: 40%; 
+  width: 70%; 
   height: auto; 
+  position: absolute;
+  right: 200px;
 }
 .waves {
   position:relative;
