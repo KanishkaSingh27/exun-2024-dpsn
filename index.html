@@ -7,6 +7,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+         
 
     <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
     <script type="importmap">
@@ -20,7 +22,7 @@
 </head>
 
 <body>
-  <section>
+  <section id="home"> 
     <div class="topnav" id="myTopnav">
         <img src="#" class="logo">
         <a href="sign in.html" class="button">Sign In</a>
@@ -28,23 +30,18 @@
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
     </div>
 
-    
     <div class="typing head">
       
       <h1 class="h1_1">DigiCard</h1>
-      <p class="line"> The  <span style="color:#9bd4ff;"><i>Smart</i></span> Choice for Students </p>
+      <p class="line"> Exploring the  <span style="color:#f0cbf0;"><i>depths</i></span> together </p>
     
     </div>
-    <div id="progress-container" class="img">Loading map...</div>
-
-    <script type="module" src="js/script.js"></script>
-    
+    <img src="home.png" class="img"></img>
     <center>
         <a href="#abt" id="nextSection"><i class="fa-solid fa-chevron-down fa-2xl fa-bounce" style="color: #E3E7D3;margin-top: 35%;margin-left: 40%;
             padding-bottom: 180px;"></i></a>
     </center>
     </div>
-
    
     <script>
         function myFunction() {
@@ -56,6 +53,23 @@
             }
         }
     </script>
+    </section>
+    <section id="abt">
+      <div class="text-container">
+          <div class="text-column">  <h3 class="heading" >About OceanSync</h3>
+          <h1 class="h1">Uniting Science to Uncover the Ocean’s Secrets</h1>
+          </div>
+           
+           
+           <div class="text-column">
+           <p class="abt">
+            OceanSync is a collaborative platform uniting marine biologists, archaeologists, architects, and explorers to uncover and preserve the mysteries of an underwater city. By fostering an interdisciplinary approach, we aim to advance scientific discovery and sustainable exploration through innovative tools like 3D maps and real-time data sharing. OceanSync not only enables seamless teamwork and problem-solving but also engages the public in our mission, inspiring awareness and participation in marine research and conservation. Together, we’re building a bridge between science and society to protect and understand the wonders of our ocean’s depths.  </p> </div> 
+         </div>
+  </section>
+    <div id="progress-container" >Loading map...</div>
+
+    <script type="module" src="js/script.js"></script>
+    <section id="footer">
      <div>
       <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
       viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
@@ -63,14 +77,43 @@
       <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
       </defs>
       <g class="parallax">
-      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(79, 216, 250,0.7" />
-      <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(79, 216, 250,0.5)" />
-      <use xlink:href="#gentle-wave" x="48" y="6" fill="rgba(79, 216, 250,0.3)" />
-      <use xlink:href="#gentle-wave" x="48" y="9" fill="rgba(79, 216, 250)" />
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(13, 13, 89,0.7" />
+      <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(13, 13, 89,0.5)" />
+      <use xlink:href="#gentle-wave" x="48" y="6" fill="rgba(13, 13, 89,0.3)" />
+      <use xlink:href="#gentle-wave" x="48" y="9" fill="rgba(13, 13, 89)" />
       </g>
       </svg>
       </div>
       </div>
       <div class="canvas-container"></div>
+      <footer class="footer">
+        <div class="footer-content">
+          <p class="footerText">&copy; Team OceanSync 2024</p>
+        </div>
+      </footer>
+      <button onclick="topFunction()" id="top" title="Go to top" style="background-color: rgb(13, 13, 89);"><i class="fa-solid fa-chevron-up"></i></button>
+      <script>
+        feather.replace();
+      </script>
+     <script>
+        mybutton = document.getElementById("top");
+      
+      
+      window.onscroll = function() {scrollFunction()};
+      
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+      
+      function topFunction() {
+        document.body.scrollTop = 0; 
+        document.documentElement.scrollTop = 0; 
+      }
+      </script>
+      </section>
 </body>
 </html>
