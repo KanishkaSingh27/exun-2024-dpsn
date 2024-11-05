@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-const scale= 0.4
+const scale= 0.7
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -127,19 +127,38 @@ function animate() {
   controls.update();
   renderer.render(scene, camera);
 
+  const container = document.querySelector('.canvas-container');
+  const containerRect = container.getBoundingClientRect();
+
+  const yOffsetLookup = {
+    0.4: -0.55,
+    0.5: -0.47,
+    0.6: -0.48,
+    0.7: -0.22,
+    0.8: -0.13,
+    0.9: -0.07,
+    1.0: -0.12,
+  };
+  
+
+  const yOffsetAdjustment = containerRect.height*yOffsetLookup[scale];
+
   scene.children.forEach(child => {
     if (child.userData.label) {
       const screenPosition = child.position.clone().project(camera);
       const label = child.userData.label;
-      const x = (screenPosition.x * 0.5 + 0.5) * window.innerWidth*scale;
-      const y = (1 - screenPosition.y * 0.5) * window.innerHeight*scale;
-      label.style.left = `${x}px`;
-      label.style.top = `${y+(window.innerHeight*scale*0.69)}px`;
+
+      const x = (screenPosition.x * 0.5 + 0.5) * containerRect.width;
+      const y = ((1 - screenPosition.y * 0.5) * containerRect.height) + yOffsetAdjustment;
+
+      label.style.left = `${containerRect.left + x}px`;
+      label.style.top = `${containerRect.top + y}px`;
+      label.style.transform = 'translate(-50%, -50%)'; 
+
       label.style.display = screenPosition.z > -1 && screenPosition.z < 1 ? 'block' : 'none';
     }
   });
 }
-
 animate();
 
 //zoom aniamation
