@@ -1,6 +1,6 @@
 body {
     font-family: 'poppins', sans-serif;
-    background-color: #202020;
+    background-color: #000000;
     color: #eee;
     text-align: center;
   }
@@ -345,10 +345,10 @@ input[type="range"] {
   z-index: 1001;
 }
 .canvas-container {
-  width: 70%; 
+  width: 90%; 
   height: auto; 
   position: absolute;
-  right: 200px;
+  left: 50px;
 }
 .waves {
   position:relative;

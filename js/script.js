@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-const scale= 0.7
+const scale= 0.9
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -136,7 +136,7 @@ function animate() {
     0.6: -0.48,
     0.7: -0.22,
     0.8: -0.13,
-    0.9: -0.07,
+    0.9: +1.45,
     1.0: -0.12,
   };
   
