@@ -63,7 +63,7 @@ loader.load('MAP.glb', (gltf) => {
     { 
       position: new THREE.Vector3(1.95, 1.1, 0.5), 
       name: 'Research Base Alpha', 
-      url: 'sign in.html' 
+      url: 'forum.html' 
     },
     { 
       position: new THREE.Vector3(3.95, 1.1, 0.5), 
