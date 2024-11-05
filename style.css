@@ -131,7 +131,32 @@ body {
     
      
     }
-  
+    .head{
+      color: #E3E7D3;
+      font-size: 30px;
+      font-family: 'Poppins', sans-serif;
+      margin-top:6%;
+      margin-bottom: 6%;
+      position: absolute;
+     left: 7%;
+     
+      letter-spacing: 5px;
+      float:left;
+    }
+    .line{
+      letter-spacing: 1.3px;
+      font-size: 30px;
+  }
+  .img {
+      
+      float: right;
+      padding-top: 20px;
+      padding-right: 10px;
+      height: auto;
+      max-width:fit-content;
+      width: 100%;
+      height: auto;
+      }
     .label {
       position: absolute;
       padding: 4px 8px;
