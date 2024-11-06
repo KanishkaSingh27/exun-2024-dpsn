@@ -375,11 +375,11 @@ input[type="range"] {
   z-index: 1001;
 }
 .canvas-container {
-  width: 90%; 
+  width: 80%; 
   height: auto; 
   position: absolute;
   margin-top: -60em;
-  left: 120px;
+  left: 180px;
 }
 .waves {
   position:relative;
