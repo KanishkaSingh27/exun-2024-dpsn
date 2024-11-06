@@ -8,143 +8,116 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
          
 
  
 </head>
-
 <body>
-    <section id="sidebar"> 
-        <nav>
-        <div class="white-label">
-        </div> 
-        <div id="sidebar-nav">   
-          <ul>
-            <li class="active"><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fa fa-desktop"></i> My Website</a></li>
-            <li><a href="#"><i class="fa fa-usd"></i> Ecommerce</a></li>
-            <li><a href="#"><i class="fa fa-pencil-square"></i> My Blog</a></li>
-            <li><a href="#"><i class="fa fa-sitemap"></i> SEO Tools</a></li>
-            <li><a href="#"><i class="fa fa-line-chart"></i> Reporting</a></li>
-            <li><a href="#"><i class="fa fa-comments"></i>Social Marketing</a></li>
-            <li><a href="#"><i class="fa fa-map-marker"></i> Get Traffic</a></li>     
-            <li><a href="#"><i class="fa fa-users"></i> Employees</a></li>
+  <div class="sidebar1">
+    <a class="person"><i class="fa-solid fa-user fa-xl" style="color: #ffffff;padding-right: 20px;"></i>     John Doe<br><i class="fa-solid fa-bell fa-xs" style="color: #FFD43B;padding-left: 140px;"></i></a>
+    <a class="active" href="d1.html" class="nav">Home</a>
+    <a href="dashboard.html"class="nav">Monitoring</a>
+    <a href="forum.html"class="nav">Logging</a>
+    <b><a href="index.html" class="nav" style="color: red;">Log Out</a></b>
+  </div>
+  
+  <!-- Page content -->
+  <div class="content">
+    <section id="governmentSTEPS">
+      <div class="card-container">
+        <div class="SOL_card">
             
-            <li><a href="#"><i class="fa fa-calendar"></i> Calendar</a></li>
-          </ul>
+            <h2 id="infoTitle"  >Monthly Research Progress</h2>
+            <p style="color: white;"><div id="myChart" style="width:100%; max-width:700px; height:300px;background-color: transparent;"></div>
+
+              <script>
+              google.charts.load('current', {'packages':['corechart']});
+              google.charts.setOnLoadCallback(drawChart);
+              
+              function drawChart() {
+              
+              
+              const data = google.visualization.arrayToDataTable([
+                ['Contry', '%'],
+                ['March',15],
+                ['April',37],
+                ['May',44],
+                ['June',26],
+                ['July',55]
+               
+              ]);
+              
+    
+              const options = {
+                title:'Monthly Research Progress',
+                  backgroundColor: '#202020',
+                  titleTextStyle: { color: '#FFFFFF' }, 
+      hAxis: {
+        textStyle: { color: '#FFFFFF' } 
+      },
+      vAxis: {
+        textStyle: { color: '#FFFFFF' } 
+      },
+      legend: { textStyle: { color: '#FFFFFF' } } 
+              };
+              
+            
+              const chart = new google.visualization.BarChart(document.getElementById('myChart'));
+
+
+              chart.draw(data, options)
+              
+              }
+              </script>
+              </p>
         </div>
-        </nav>
-      </section>
-      <section id="content">
-        <div id="header">
-          <div class="header-nav">
-            <div class="menu-button">
-              <!--<i class="fa fa-navicon"></i>-->
-            </div>
-            <div class="nav">
-              <ul>
-                <li class="nav-settings">
-                  <div class="font-icon"><i class="fa fa-tasks"></i></div>
-                </li>
-                <li class="nav-mail">
-                  <div class="font-icon"><i class="fa fa-envelope"></i></div>
-                </li>
-                <li class="nav-calendar">
-                  <div class="font-icon"><i class="fa fa-calendar"></i></div>
-                </li>
-                <li class="nav-chat">
-                  <div class="font-icon"><i class="fa fa-comments"></i></div>
-                </li>
-                <li class="nav-profile">
-                  <div class="nav-profile-image">
-                    <img src="https://skynet.marketecture.com/user_avatars/258800/Hayley-Helsten.jpg" alt="profile-img" alt="profile image">
-                    <div class="nav-profile-name">Jane Smith<i class="fa fa-caret-down"></i></div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+       
+        <div class="SOL_card" id="responsive">
+            
+            <h3 id="infoTitle" >Data Categorization</h3>
+            <h1 style="color: white;">
+              <div id="piechart" style="width: 700px;"></div>
+              <script type="text/javascript">
+                // Load google charts
+                google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
+                
+                // Draw the chart and set the chart values
+                function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                  ['Task', 'Percent'],
+                  ['Marine Species', 30],
+                  ['Geological Samples', 20],
+                  ['Water Quality Data', 15],
+                  ['Structural Analysis', 25],
+                  ['Artifact findings', 10]
+                ]);
+                
+                const options = {
+                  width:600,
+                  height:400,
+      title: 'Data Collected by Category',
+      colors: [ '#0d0d59', '#131380', '#1c1cb9', '#4242ee', '#7777ea'],  
+      backgroundColor: '#202020', 
+      titleTextStyle: { color: '#fff' } ,
+      legend: { textStyle: { color: '#FFFFFF' } } 
+    };
+                
+                  // Display the chart inside the <div> element with id="piechart"
+                  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                  chart.draw(data, options);
+                }
+                </script>
+               
+            </h1>
         </div>
-        <div class="content">
-          <div class="content-header">
-            <h1>Dashboard</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-          <header class="header">
-            <h1>Underwater Condition Monitoring</h1>
-            <p>Real-time environmental data and alerts for Vedika's research team</p>
-        </header>
-        
-        <main>
-            <!-- Environmental Data Dashboard -->
-            <section class="dashboard">
-                <h2>Real-Time Environmental Data</h2>
-                <div class="data-grid">
-                    <div class="data-item">
-                        <h3>Temperature</h3>
-                        <p id="temp">Loading...</p>
-                    </div>
-                    <div class="data-item">
-                        <h3>pH Level</h3>
-                        <p id="ph">Loading...</p>
-                    </div>
-                    <div class="data-item">
-                        <h3>Salinity</h3>
-                        <p id="salinity">Loading...</p>
-                    </div>
-                    <div class="data-item">
-                        <h3>Oxygen Level</h3>
-                        <p id="oxygen">Loading...</p>
-                    </div>
-                </div>
-            </section>
-    
-            <!-- Anomaly Alert System -->
-            <section class="alerts">
-                <h2>Anomaly Alert System</h2>
-                <div id="alert-container">
-                    <p>No anomalies detected.</p>
-                </div>
-            </section>
-    
-            <!-- Predictive Modeling -->
-            <section class="predictive-modeling">
-                <h2>Predictive Modeling</h2>
-                <canvas id="predictionChart" width="400" height="200"></canvas>
-                <p>Forecasted environmental conditions based on recent data trends.</p>
-            </section>
-        </main>
-    
-        <footer>
-            <p>&copy; 2024 Vedika's Research Team</p>
-        </footer>
-    
-    <div id="sidebar" class="sidebar">
-        <button id="closeSidebar" class="close-btn">×</button>
-        <h2>Adjust Levels</h2>
-        
-        <label for="tempSlider">Temperature (°C): <span id="tempValue">10</span></label>
-        <input type="range" id="tempSlider" min="0" max="100" value="10">
-        
-        <label for="oxygenSlider">Oxygen Level (%): <span id="oxygenValue">50</span></label>
-        <input type="range" id="oxygenSlider" min="0" max="100" value="50">
-    
-        <label for="salinitySlider">Salinity (PSU): <span id="salinityValue">35</span></label>
-        <input type="range" id="salinitySlider" min="0" max="100" value="35">
-        
-        <label for="phSlider">pH Level: <span id="phValue">7.5</span></label>
-        <input type="range" id="phSlider" min="0.0" max="14.0" step="0.1" value="7.5">
-        
-        <button id="applyLevels" class="apply-btn">Apply Levels</button>
-    </div>
-    
-    
-    <button id="openSidebar" class="open-btn">Adjust Levels</button>
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/dash.js"></script>
-    
-      </section>
+        </div>
+    </section>
+  </div>
+  <footer>
+    <p>&copy; Team Plato 2024</p>
+</footer>
       </body>
       </html>
