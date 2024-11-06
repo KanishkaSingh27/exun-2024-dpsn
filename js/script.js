@@ -58,17 +58,17 @@ loader.load('MAP.glb', (gltf) => {
     { 
       position: new THREE.Vector3(-0.45, 1.1, -1.09), 
       name: 'Ancient Ruins', 
-      url: 'dashboard.html' 
+      url: 'index.html' 
     },
     { 
       position: new THREE.Vector3(1.95, 1.1, 0.5), 
       name: 'Research Base Alpha', 
-      url: 'forum.html' 
+      url: 'index.html' 
     },
     { 
       position: new THREE.Vector3(3.95, 1.1, 0.5), 
       name: 'Research Base Alpha', 
-      url: 'sign in.html' 
+      url: 'index.html' 
     },
   ];
 
