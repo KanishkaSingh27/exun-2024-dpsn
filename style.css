@@ -127,7 +127,9 @@ margin-right: 20px;
   a:hover{
     color:#f0cbf0;
   }
-  
+  .h1_1{
+    font-size: 60px;
+  }
   a.left:before {
     content: "";
     position: absolute;
